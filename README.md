@@ -2,7 +2,9 @@
 
 一个用 Java 编写的局域网端口扫描工具，支持 TCP 和 HTTP 协议扫描。现成的 `LanPortScanner.jar` 文件（仅5.18KB）请在项目 release 页面下载。
 
-# 我的使用场景举例
+2026年2月26日 19:44:48 update: 忽然意识到，这个项目是基于 tcp/http 协议+特定端口，扫描给定局域网下载的活跃主机的，所以名称 LanPortScanner 应该改成 LanHostScanner 才对 -_- 不过不改了~ 知道就行，不影响使用~
+
+## 我的使用场景举例
 
 1. 群晖 nas 设备接入了一个局域网，但是我没有局域网管理权限，可以借助本程序快速扫描群晖的 5000 web 端口
 2. 我的 x86 小主机安装了 immortalwrt 系统作为旁路网关使用，小主机开机后也可以借助本程序快速扫描出来 IP，可以使用 http 扫描 88 端口（luci web uhttpd 的服务端口默认是 80），也可以使用 tcp 扫描 1003 端口（dropbear ssh 服务默认端口是 22）
@@ -15,6 +17,10 @@
 - 📊 详细的扫描结果和统计信息
 - 🔒 仅支持局域网IP扫描，确保安全
 - 🔄 兼容 Java 8 到 Java 21+
+
+## 📦 Downloads
+
+![GitHub release downloads](https://img.shields.io/github/downloads/hellodk34/LanPortScanner/v1.0.0/total)
 
 ## 🚀 快速开始
 
