@@ -1,6 +1,6 @@
 # LanHostScanner - 局域网主机扫描器
 
-一个用 Java 编写的局域网主机扫描工具，支持 TCP 和 HTTP 协议扫描。现成的 `LanHostScanner.jar` 文件（仅5.18KB）请在项目 release 页面下载。
+一个用 Java 编写的局域网主机扫描工具，支持 TCP 和 HTTP 协议扫描。现成的 `LanHostScanner.jar` 文件请在项目 release 页面下载。
 
 ## 我的使用场景举例
 
