@@ -11,12 +11,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 /**
- * 局域网端口扫描器
+ * 局域网主机扫描器
  * 支持 TCP 和 HTTP 协议扫描
  * <p>
  * 使用方法:
- * java -jar LanPortScanner.jar tcp 192.168.1.1 192.168.1.254 80 2
- * java -jar LanPortScanner.jar http 192.168.10.1 192.168.10.254 8080
+ * java -jar LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 80 2
+ * java -jar LanHostScanner.jar http 192.168.10.1 192.168.10.254 8080
  * <p>
  * 参数说明:
  * 1. 协议类型: tcp 或 http (不区分大小写)
@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * 4. 目标端口号
  * 5. 超时时间(秒，可选，默认2秒)
  */
-public class LanPortScanner {
+public class LanHostScanner {
 
     // 局域网IP正则表达式
     private static final Pattern LAN_IP_PATTERN = Pattern.compile(
@@ -40,7 +40,7 @@ public class LanPortScanner {
     private int port;
     private int timeoutSeconds;
 
-    public LanPortScanner(String protocol, String startIp, String endIp, int port, int timeoutSeconds) {
+    public LanHostScanner(String protocol, String startIp, String endIp, int port, int timeoutSeconds) {
         this.protocol = protocol.toLowerCase();
         this.startIp = startIp;
         this.endIp = endIp;
@@ -55,9 +55,9 @@ public class LanPortScanner {
         // 检查参数个数
         if (args.length != 4 && args.length != 5) {
             System.err.println("[ERROR] 参数错误：需要 4 或 5 个参数（超时秒数是可选参数）");
-            System.err.println("使用方法：java -jar LanPortScanner.jar <协议> <起始IP> <结束IP> <端口> [超时秒数]");
-            System.err.println("示例：java -jar LanPortScanner.jar tcp 192.168.1.1 192.168.1.254 80 2");
-            System.err.println("示例：java -jar LanPortScanner.jar http 192.168.10.1 192.168.10.254 22");
+            System.err.println("使用方法：java -jar LanHostScanner.jar <协议> <起始IP> <结束IP> <端口> [超时秒数]");
+            System.err.println("示例：java -jar LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 80 2");
+            System.err.println("示例：java -jar LanHostScanner.jar http 192.168.10.1 192.168.10.254 22");
             System.exit(1);
         }
 
@@ -216,7 +216,7 @@ public class LanPortScanner {
         int timeoutMs = timeoutSeconds * 1000;
 
         System.out.println("========================================");
-        System.out.println("LanPortScanner - 局域网端口扫描器");
+        System.out.println("LanHostScanner - 局域网主机扫描器");
         System.out.println("========================================");
         System.out.println("协议类型: " + protocol.toUpperCase());
         System.out.println("IP范围: " + startIp + " - " + endIp);
@@ -296,7 +296,7 @@ public class LanPortScanner {
             int timeout = args.length == 5 ? Integer.parseInt(args[4]) : 2; // 默认2秒
 
             // 创建扫描器并执行
-            LanPortScanner scanner = new LanPortScanner(protocol, startIp, endIp, port, timeout);
+            LanHostScanner scanner = new LanHostScanner(protocol, startIp, endIp, port, timeout);
             scanner.scan();
 
         }
