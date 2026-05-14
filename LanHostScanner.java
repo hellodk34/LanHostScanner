@@ -48,16 +48,18 @@ public class LanHostScanner {
         this.timeoutSeconds = timeoutSeconds;
     }
 
+    // LanHostScanner.validateArguments
     /**
      * 验证参数
      */
     public static void validateArguments(String[] args) {
         // 检查参数个数
         if (args.length != 4 && args.length != 5) {
+            System.out.println("--- LanHostScanner - 局域网主机扫描器 ---");
             System.err.println("[ERROR] 参数错误：需要 4 或 5 个参数（超时秒数是可选参数）");
             System.err.println("使用方法：java -jar LanHostScanner.jar <协议> <起始IP> <结束IP> <端口> [超时秒数]");
-            System.err.println("示例：java -jar LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 80 2");
-            System.err.println("示例：java -jar LanHostScanner.jar http 192.168.10.1 192.168.10.254 22");
+            System.err.println("示例：java -jar LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 22 2");
+            System.err.println("示例：java -jar LanHostScanner.jar http 192.168.10.1 192.168.10.254 80");
             System.exit(1);
         }
 

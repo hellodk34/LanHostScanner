@@ -26,13 +26,13 @@
 
 ```bash
 # TCP 扫描（默认2秒超时）
-java -jar target/LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 80
+java -jar LanHostScanner.jar tcp 192.168.1.1 192.168.1.254 22
 
 # HTTP 扫描（自定义超时3秒）
-java -jar target/LanHostScanner.jar http 192.168.10.1 192.168.10.254 8080 3
+java -jar LanHostScanner.jar http 192.168.10.1 192.168.10.254 8080 3
 
-# 跨网段扫描
-java -jar target/LanHostScanner.jar tcp 192.168.0.1 192.168.1.254 22 5
+# 跨网段+自定义超时5秒
+java -jar LanHostScanner.jar tcp 192.168.0.1 192.168.1.254 22 5
 ```
 
 ## 📖 参数说明
